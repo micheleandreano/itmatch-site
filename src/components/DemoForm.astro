@@ -1,0 +1,101 @@
+---
+// Form richiesta demo — bilingue (Netlify Forms).
+interface Props { lang?: 'it' | 'en'; }
+const { lang = 'it' } = Astro.props;
+const action = lang === 'en' ? '/en/thank-you/' : '/grazie/';
+const formName = lang === 'en' ? 'itmatch-demo-en' : 'itmatch-demo';
+
+const t = {
+  it: {
+    nome: 'Nome', cognome: 'Cognome', azienda: 'Azienda', email: 'Email', telefono: 'Telefono', note: 'Note',
+    phNome: 'Mario', phCognome: 'Rossi', phAzienda: 'Nome azienda', phEmail: 'mario.rossi@azienda.it', phTel: '+39 333 1234567',
+    phNote: 'Raccontaci di cosa hai bisogno (facoltativo)',
+    privacy1: 'Accetto la', privacy2: 'privacy policy',
+    submit: 'Richiedi una demo', reqNote: 'I campi con', reqNote2: 'sono obbligatori.',
+  },
+  en: {
+    nome: 'First name', cognome: 'Last name', azienda: 'Company', email: 'Email', telefono: 'Phone', note: 'Notes',
+    phNome: 'John', phCognome: 'Smith', phAzienda: 'Company name', phEmail: 'john.smith@company.com', phTel: '+39 333 1234567',
+    phNote: 'Tell us what you need (optional)',
+    privacy1: 'I accept the', privacy2: 'privacy policy',
+    submit: 'Request a demo', reqNote: 'Fields marked with', reqNote2: 'are required.',
+  },
+}[lang];
+const privacyHref = lang === 'en' ? '/en/privacy/' : '/privacy/';
+---
+<form
+  name={formName}
+  method="POST"
+  action={action}
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="demo-form"
+>
+  <input type="hidden" name="form-name" value={formName} />
+  <input type="hidden" name="lingua" value={lang === 'en' ? 'EN' : 'IT'} />
+  <p class="hidden"><label>Non compilare: <input name="bot-field" /></label></p>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="nome">{t.nome} <span>*</span></label>
+      <input id="nome" name="nome" type="text" required placeholder={t.phNome} />
+    </div>
+    <div class="field">
+      <label for="cognome">{t.cognome} <span>*</span></label>
+      <input id="cognome" name="cognome" type="text" required placeholder={t.phCognome} />
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="azienda">{t.azienda} <span>*</span></label>
+    <input id="azienda" name="azienda" type="text" required placeholder={t.phAzienda} />
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="email">{t.email} <span>*</span></label>
+      <input id="email" name="email" type="email" required placeholder={t.phEmail} />
+    </div>
+    <div class="field">
+      <label for="telefono">{t.telefono} <span>*</span></label>
+      <input id="telefono" name="telefono" type="tel" required placeholder={t.phTel} />
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="note">{t.note}</label>
+    <textarea id="note" name="note" rows="3" placeholder={t.phNote}></textarea>
+  </div>
+
+  <div class="field check">
+    <label><input type="checkbox" name="privacy" required /> {t.privacy1} <a href={privacyHref}>{t.privacy2}</a> <span>*</span></label>
+  </div>
+
+  <button type="submit" class="btn btn-accent submit">{t.submit}</button>
+  <p class="req-note">{t.reqNote} <span>*</span> {t.reqNote2}</p>
+</form>
+
+<style>
+  .demo-form { text-align: left; max-width: 560px; margin: 0 auto; }
+  .hidden { display: none; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-size: 13px; color: #cdd7e2; margin-bottom: 6px; font-weight: 500; }
+  .field label span { color: var(--accent); }
+  .field input, .field textarea {
+    width: 100%; padding: 12px 14px; font-size: 15px; font-family: var(--font-sans);
+    border: 1px solid rgba(255,255,255,.18); border-radius: var(--radius);
+    background: rgba(255,255,255,.06); color: #fff; box-sizing: border-box;
+    transition: border-color .15s ease, background .15s ease;
+  }
+  .field input::placeholder, .field textarea::placeholder { color: #6e8298; }
+  .field input:focus, .field textarea:focus { outline: none; border-color: var(--accent); background: rgba(255,255,255,.1); }
+  .field textarea { resize: vertical; }
+  .check label { display: flex; align-items: center; gap: 8px; font-size: 13px; color: #aab6c4; font-weight: 400; }
+  .check input { width: auto; }
+  .check a { color: #6ea8e0; }
+  .submit { width: 100%; border: none; cursor: pointer; margin-top: 6px; font-size: 16px; }
+  .req-note { font-size: 12px; color: #6e8298; margin-top: 12px; text-align: center; }
+  .req-note span { color: var(--accent); }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+</style>

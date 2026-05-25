@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>ITMatch — form detection (Netlify)</title>
+</head>
+<body>
+  <!--
+    File tecnico per il rilevamento dei form da parte di Netlify.
+    NON visibile agli utenti. Replica i campi dei form reali in DemoForm.astro
+    cosi' Netlify registra i form anche con deploy di HTML pre-buildato.
+    Due form: itmatch-demo (IT) e itmatch-demo-en (EN), con redirect post-submit distinti.
+  -->
+  <form name="itmatch-demo" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="itmatch-demo" />
+    <input type="hidden" name="lingua" />
+    <input name="bot-field" />
+    <input type="text" name="nome" />
+    <input type="text" name="cognome" />
+    <input type="text" name="azienda" />
+    <input type="email" name="email" />
+    <input type="tel" name="telefono" />
+    <textarea name="note"></textarea>
+    <input type="checkbox" name="privacy" />
+  </form>
+
+  <form name="itmatch-demo-en" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="hidden" name="form-name" value="itmatch-demo-en" />
+    <input type="hidden" name="lingua" />
+    <input name="bot-field" />
+    <input type="text" name="nome" />
+    <input type="text" name="cognome" />
+    <input type="text" name="azienda" />
+    <input type="email" name="email" />
+    <input type="tel" name="telefono" />
+    <textarea name="note"></textarea>
+    <input type="checkbox" name="privacy" />
+  </form>
+</body>
+</html>

@@ -1,0 +1,70 @@
+---
+// Layout base del sito. Gestisce <head>, SEO meta, canonical, CSS globale.
+import '../styles/global.css';
+export interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  lang?: 'it' | 'en';
+}
+const { title, description = '', ogImage, lang = 'it' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImageUrl = new URL(ogImage ?? '/og-image.png', Astro.site).href;
+// hreflang: calcola gli URL gemelli IT/EN a partire dal path corrente
+const path = Astro.url.pathname;
+const itPath = path.replace(/^\/en\//, '/').replace(/^\/en$/, '/');
+const enPath = path.startsWith('/en') ? path : ('/en' + (path === '/' ? '/' : path));
+const itHref = new URL(itPath, Astro.site).href;
+const enHref = new URL(enPath, Astro.site).href;
+const ogLocale = lang === 'en' ? 'en_US' : 'it_IT';
+---
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="google-site-verification" content="jcO-D10nrQ8KZ9i4zoPdsZM3ddQct47BxNkRKPhU0UI" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="it" href={itHref} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="x-default" href={itHref} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="ITMatch" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="generator" content={Astro.generator} />
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <script>
+      // Reveal-on-scroll sobrio: aggiunge .in quando l'elemento entra in vista.
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!mq.matches) {
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      } else {
+        document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+      }
+    </script>
+  </body>
+</html>

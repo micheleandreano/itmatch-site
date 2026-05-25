@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const fmt = (d) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Layout
+  title="Blog — ITMatch"
+  description="Articoli su AI recruiting, selezione di profili IT e automazione del lavoro del recruiter. Insight dal team ITMatch."
+  lang="it"
+>
+  <Header lang="it" />
+
+  <section class="blog-list">
+    <div class="wrap">
+      <span class="eyebrow">Blog</span>
+      <h1>AI recruiting, raccontato da chi lo costruisce</h1>
+      <p class="intro">Articoli e approfondimenti su come l'AI sta cambiando la selezione dei profili IT.</p>
+
+      <div class="posts">
+        {posts.map((post) => (
+          <a href={`/blog/${post.id}/`} class="post-card">
+            <span class="date">{fmt(post.data.pubDate)}</span>
+            <h2>{post.data.title}</h2>
+            <p>{post.data.description}</p>
+            <span class="read">Leggi →</span>
+          </a>
+        ))}
+      </div>
+
+      {posts.length === 0 && <p class="empty">Nessun articolo pubblicato al momento.</p>}
+    </div>
+  </section>
+
+  <Footer lang="it" />
+</Layout>
+
+<style>
+  .blog-list { padding: 70px 0 90px; }
+  .blog-list .wrap { max-width: 820px; }
+  .eyebrow { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); font-weight: 600; }
+  .blog-list h1 { font-size: 42px; line-height: 1.12; color: var(--ink); margin: 12px 0 14px; letter-spacing: -0.02em; }
+  .intro { font-size: 18px; color: var(--muted); margin: 0 0 48px; line-height: 1.6; }
+  .posts { display: flex; flex-direction: column; gap: 14px; }
+  .post-card { display: block; padding: 28px 30px; border: 0.5px solid var(--line); border-radius: var(--radius-lg, 16px); text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; background: #fff; }
+  .post-card:hover { border-color: var(--brand-200, #c7d2fe); box-shadow: 0 8px 30px -12px rgba(79,70,229,.18); transform: translateY(-2px); }
+  .post-card .date { font-size: 13px; color: var(--muted-2); }
+  .post-card h2 { font-size: 22px; line-height: 1.25; color: var(--ink); margin: 8px 0 10px; letter-spacing: -0.01em; }
+  .post-card p { font-size: 15px; color: var(--muted); line-height: 1.6; margin: 0 0 14px; }
+  .post-card .read { font-size: 14px; color: var(--brand); font-weight: 600; }
+  .empty { color: var(--muted); }
+  @media (max-width: 720px) { .blog-list h1 { font-size: 32px; } .post-card { padding: 22px; } }
+</style>

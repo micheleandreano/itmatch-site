@@ -1,0 +1,12 @@
+# _redirects per Netlify — itmatch.app
+#
+# Dominio principale:  itmatch.app
+# Dominio secondario:  it-match.it  -> redirect 301 a itmatch.app
+#
+# NOTA: il redirect da it-match.it a itmatch.app si configura nel pannello
+# Netlify (Domain management): aggiungi entrambi i domini, imposta itmatch.app
+# come "primary domain" e Netlify reindirizza automaticamente it-match.it -> itmatch.app in 301.
+# Non serve quindi una regola qui per il dominio.
+
+# Nessun redirect interno necessario: sito a pagina singola.
+# (Astro serve i 404 reali per percorsi inesistenti.)

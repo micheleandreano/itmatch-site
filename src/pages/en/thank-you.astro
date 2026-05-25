@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+<Layout
+  lang="en"
+  title="Thank you — ITMatch"
+  description="We've received your ITMatch demo request."
+>
+  <Header lang="en" />
+
+  <section class="grazie">
+    <div class="wrap">
+      <div class="check-ic">✓</div>
+      <h1>Request received.</h1>
+      <p class="lead">
+        Thank you! We've received your demo request.
+        We'll get back to you shortly to show you the AI matching on a real position.
+      </p>
+      <div class="cta-row">
+        <a href="https://www.itmatch.app/en/" class="btn btn-accent">Back to home</a>
+        <a href="https://www.itmatch.app/en/#screening" class="btn-ghost">Discover AI Screening</a>
+      </div>
+      <p class="exp">In the meantime, take a look at how ITMatch automates sourcing, matching and screening of IT candidates.</p>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  .grazie {
+    padding: 120px 0 130px;
+    text-align: center;
+    background: radial-gradient(120% 70% at 50% 0%, var(--brand-50) 0%, #fff 60%);
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+  }
+  .check-ic {
+    width: 72px; height: 72px;
+    margin: 0 auto 28px;
+    border-radius: 50%;
+    background: var(--match);
+    color: #fff;
+    font-size: 38px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 14px 34px -10px rgba(16,185,129,.5);
+  }
+  .grazie h1 { font-size: 52px; line-height: 1.05; color: var(--ink); margin: 0 0 20px; }
+  .lead { font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 52ch; margin: 0 auto 34px; }
+  .cta-row { display: flex; gap: 22px; align-items: center; justify-content: center; }
+  .exp { font-size: 14px; color: var(--muted-2); margin: 40px auto 0; max-width: 50ch; line-height: 1.6; }
+  @media (max-width: 720px) {
+    .grazie { padding: 80px 0 90px; }
+    .grazie h1 { font-size: 36px; }
+    .lead { font-size: 17px; }
+    .cta-row { flex-direction: column; gap: 16px; }
+  }
+</style>

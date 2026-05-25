@@ -1,0 +1,52 @@
+---
+// Lightbox: clic sull'immagine per ingrandirla a schermo intero.
+// CSS+JS puro, leggero. Si chiude con Esc, clic sullo sfondo o sulla X.
+---
+<div id="lightbox" class="lb" hidden>
+  <button class="lb-close" aria-label="Chiudi">&times;</button>
+  <img id="lb-img" src="" alt="" />
+</div>
+
+<style>
+  .lb { position: fixed; inset: 0; z-index: 200; background: rgba(14,23,38,.92); display: flex; align-items: center; justify-content: center; padding: 4vh 4vw; cursor: zoom-out; }
+  .lb[hidden] { display: none; }
+  .lb img { max-width: 96vw; max-height: 92vh; width: auto; height: auto; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,.5); cursor: default; }
+  .lb-close { position: absolute; top: 18px; right: 24px; background: none; border: none; color: #fff; font-size: 40px; line-height: 1; cursor: pointer; opacity: .8; }
+  .lb-close:hover { opacity: 1; }
+</style>
+
+<script>
+  function initLightbox() {
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    if (!lb || !lbImg) return;
+
+    function open(src, alt) {
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lb.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+    function close() {
+      lb.hidden = true;
+      lbImg.src = '';
+      document.body.style.overflow = '';
+    }
+
+    // Tutte le immagini marcate come zoomabili
+    document.querySelectorAll('[data-zoom]').forEach((el) => {
+      el.style.cursor = 'zoom-in';
+      el.addEventListener('click', () => {
+        const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+        // per gli SVG inline o <img> svg, uso il src; per i div con bg uso data-zoom-src
+        const src = el.dataset.zoomSrc || (img && img.currentSrc) || (img && img.src);
+        if (src) open(src, img ? img.alt : '');
+      });
+    });
+
+    lb.addEventListener('click', (e) => { if (e.target !== lbImg) close(); });
+    document.querySelector('.lb-close')?.addEventListener('click', close);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) close(); });
+  }
+  initLightbox();
+</script>

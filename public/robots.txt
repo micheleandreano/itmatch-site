@@ -1,0 +1,6 @@
+# robots.txt — ITMatch (www.itmatch.app)
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.itmatch.app/sitemap-index.xml

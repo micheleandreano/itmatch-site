@@ -1,0 +1,393 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import DemoForm from '../../components/DemoForm.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import { Image } from 'astro:assets';
+
+// Product screenshots — English versions.
+import heroCard from '../../assets/itmatch/hero-scheda-candidato-en.png';
+import aiLavora from '../../assets/itmatch/ai-lavora-per-te-en.png';
+import cvAnonimo from '../../assets/itmatch/cv-anonimo-en.png';
+import rilIntegra from '../../assets/itmatch/ril-integrazione-en.png';
+import jobProfile from '../../assets/itmatch/job-profile-en.png';
+import risultatiMatch from '../../assets/itmatch/risultati-matching-en.png';
+import aiScreening from '../../assets/itmatch/ai-screening-whatsapp-en.png';
+import dashboard from '../../assets/itmatch/dashboard-en.png';
+import valutazione from '../../assets/itmatch/valutazione-candidati-en.png';
+import portaleClienti from '../../assets/itmatch/portale-clienti-shortlist-en.png';
+import clientiMonitorati from '../../assets/itmatch/clienti-monitorati-en.png';
+---
+<Layout
+  lang="en"
+  title="ITMatch — Find IT candidates with AI. In minutes."
+  description="ITMatch automates sourcing, matching, screening and qualification of IT candidates through native integration with ReteInformaticaLavoro. Over 80,000 IT resumes already onboard."
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ITMatch",
+      "applicationCategory": "BusinessApplication",
+      "applicationSubCategory": "Recruiting / Applicant Tracking System",
+      "operatingSystem": "Web",
+      "description": "The AI Recruiting Engine for the IT market: automated sourcing, matching, screening and qualification of IT candidates. Over 80,000 IT resumes integrated.",
+      "url": "https://www.itmatch.app/en/",
+      "inLanguage": "en",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR", "description": "Request a demo" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Code&Career Srl",
+        "url": "https://www.reteinformaticalavoro.it",
+        "vatID": "IT14370520968",
+        "address": { "@type": "PostalAddress", "streetAddress": "Via Adeodato Ressi 16", "addressLocality": "Milano", "addressCountry": "IT" }
+      }
+    })} />
+  </Fragment>
+  <Header lang="en" />
+
+  <!-- ============ 1 · HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="reveal d1 hero-eyebrow">AI Recruiting Engine · IT-focused</span>
+      <h1 class="reveal d1">Find IT candidates<br>with AI. <em>In minutes.</em></h1>
+      <p class="reveal d2 lead">
+        ITMatch automates sourcing, matching, screening and qualification of IT candidates
+        through native integration with ReteInformaticaLavoro —
+        <strong>over 80,000 IT resumes already onboard.</strong>
+      </p>
+      <div class="reveal d3 cta-row">
+        <a href="/en/demo/" class="btn btn-accent">Request a demo</a>
+        <a href="#flow" class="btn-ghost">See the AI matching</a>
+      </div>
+      <div class="reveal d4 trust-stats">
+        <div class="stat"><b>80,000+</b><span>IT resumes onboard</span></div>
+        <div class="stat"><b>1,500</b><span>new profiles / month</span></div>
+        <div class="stat"><b>~70%</b><span>operational time saved</span></div>
+      </div>
+    </div>
+    <div class="wrap hero-shot reveal d3" data-zoom>
+      <Image src={heroCard} alt="ITMatch: candidate profile with 88% AI match, key strengths and send-to-client" widths={[600, 900, 1200, 1717]} sizes="(max-width: 980px) 100vw, 1080px" />
+    </div>
+  </section>
+
+  <!-- ============ 2 · AI DOES THE OPERATIONAL WORK ============ -->
+  <section id="prodotto" class="intro-prod">
+    <div class="wrap">
+      <span class="reveal d1 eyebrow">The product</span>
+      <h2 class="reveal d1">AI does the operational work.<br>You choose the people.</h2>
+      <p class="reveal d2 sub">
+        Automatic profile compilation, job-description formatting, qualification and screening,
+        all the way to the shortlist. ITMatch takes repetitive work off the recruiter's hands.
+      </p>
+    </div>
+    <div class="wrap pano-img reveal d2" data-zoom data-zoom-src={aiLavora.src}>
+      <Image src={aiLavora} alt="AI working for you: extracts, compiles, formats, cuts errors and duplication — up to 70% time saved" widths={[700, 1100, 1536]} sizes="(max-width: 1000px) 100vw, 1280px" />
+    </div>
+  </section>
+
+  <!-- sub-features: anonymous CV + monitored clients -->
+  <section class="feat">
+    <div class="wrap f-row reveal">
+      <div class="f-text">
+        <span class="eyebrow">Anonymous CV</span>
+        <h3>A professional, anonymous CV in one click</h3>
+        <p>ITMatch turns every profile into a clean, complete, GDPR-compliant sheet — ready to send to the client. No more copy/paste, no more hours lost on layout.</p>
+        <ul class="checks">
+          <li>Full anonymization of name, contacts and sensitive data</li>
+          <li>Professional, consistent layout with your branding</li>
+          <li>Skills and experience already highlighted</li>
+        </ul>
+      </div>
+      <div class="f-shot" data-zoom data-zoom-src={cvAnonimo.src}>
+        <Image src={cvAnonimo} alt="Professional anonymous CV generated by ITMatch" widths={[400,700,900,1536]} sizes="(max-width:860px) 100vw, 560px" />
+      </div>
+    </div>
+
+    <div class="wrap f-row reverse reveal">
+      <div class="f-text">
+        <span class="eyebrow">Automatic sourcing</span>
+        <h3>Your clients' job posts, monitored by AI</h3>
+        <p>ITMatch keeps an eye on your clients' career pages and automatically pulls in every open IT position. You always know what they're looking for, before anyone else.</p>
+        <ul class="checks">
+          <li>Continuous monitoring of open positions</li>
+          <li>Job posts imported and ready for matching</li>
+          <li>Zero manual data entry</li>
+        </ul>
+      </div>
+      <div class="f-shot" data-zoom data-zoom-src={clientiMonitorati.src}>
+        <Image src={clientiMonitorati} alt="Monitored clients dashboard: IT job posts pulled automatically from career pages" widths={[400,700,900,1692]} sizes="(max-width:860px) 100vw, 560px" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 3 · NATIVE IT DATABASE ============ -->
+  <section id="database" class="db">
+    <div class="wrap db-head reveal d1">
+      <span class="eyebrow on-dark">Native IT database</span>
+      <h2>80,000+ IT resumes. Already inside ITMatch.</h2>
+      <p>
+        ITMatch is born connected to ReteInformaticaLavoro, the largest Italian database
+        of IT professionals: real profiles, structured skills, updated daily —
+        and searchable with AI.
+      </p>
+    </div>
+    <div class="wrap db-img reveal d2" data-zoom data-zoom-src={rilIntegra.src}>
+      <Image src={rilIntegra} alt="ITMatch + ReteInformaticaLavoro: search resumes across 80,000+ IT profiles with AI matching" widths={[700, 1100, 1536]} sizes="(max-width: 1000px) 100vw, 1280px" />
+    </div>
+  </section>
+
+  <!-- ============ 4 · FROM JOB PROFILE TO SHORTLIST ============ -->
+  <section id="flow" class="flow">
+    <div class="wrap">
+      <div class="flow-head reveal d1">
+        <span class="eyebrow">The flow</span>
+        <h2>From Job Profile to shortlist</h2>
+        <div class="flow-steps">
+          <span>Job Profile</span><i>→</i><span>AI</span><i>→</i><span>Match</span><i>→</i><span>Screening</span><i>→</i><span>Client</span>
+        </div>
+      </div>
+
+      <div class="flow-row reveal">
+        <div class="flow-text">
+          <span class="num">01</span>
+          <h3>Define the position</h3>
+          <p>Upload the job profile with the required hard and soft skills. The AI structures it and sets the stage for matching.</p>
+        </div>
+        <div class="flow-shot" data-zoom data-zoom-src={jobProfile.src}>
+          <Image src={jobProfile} alt="Job Profile in ITMatch with required skills and candidates in the pipeline" widths={[400,700,900,1536]} sizes="(max-width:860px) 100vw, 600px" />
+        </div>
+      </div>
+
+      <div class="flow-row reverse reveal">
+        <div class="flow-text">
+          <span class="num">02</span>
+          <h3>The AI returns your matches, already ranked</h3>
+          <p>Every candidate arrives with a compatibility score and the matching skills highlighted. No more reading through hundreds of resumes.</p>
+        </div>
+        <div class="flow-shot" data-zoom data-zoom-src={risultatiMatch.src}>
+          <Image src={risultatiMatch} alt="Matching results: candidates with AI scores 88%, 82%, 74% and skill match" widths={[400,700,900,1536]} sizes="(max-width:860px) 100vw, 600px" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 · AI CANDIDATE SCREENING (WhatsApp) ============ -->
+  <section id="screening" class="screening">
+    <div class="wrap scr-grid">
+      <div class="scr-text reveal d1">
+        <span class="eyebrow on-dark">Killer feature</span>
+        <h2>AI Candidate Screening,<br>on WhatsApp.</h2>
+        <p>
+          ITMatch reaches out to candidates on WhatsApp, leads the conversation naturally,
+          collects the information that matters and gives you a structured summary —
+          ready for qualification.
+        </p>
+        <ul class="checks light">
+          <li>Automatic outreach with questions tailored to the role</li>
+          <li>AI conversation: availability, salary, work setup</li>
+          <li>Synthesized answers and compatibility assessment</li>
+        </ul>
+      </div>
+      <div class="scr-shot reveal d2" data-zoom data-zoom-src={aiScreening.src}>
+        <Image src={aiScreening} alt="ITMatch AI Screening: WhatsApp conversation with the candidate and answer summary" widths={[400,700,900,1561]} sizes="(max-width:860px) 100vw, 620px" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 · WHY IT RECRUITERS USE ITMATCH ============ -->
+  <section id="perche" class="perche">
+    <div class="wrap">
+      <div class="perche-head reveal d1">
+        <span class="eyebrow">The benefits</span>
+        <h2>Why IT recruiters use ITMatch</h2>
+      </div>
+      <div class="perche-grid">
+        <div class="p-card reveal d1"><span class="p-ic">↓</span><h3>Less manual sourcing</h3><p>The right candidates surface from the database, without hours of boolean search.</p></div>
+        <div class="p-card reveal d1"><span class="p-ic">✕</span><h3>Fewer useless resumes</h3><p>Only profiles with a real match for the role. No more piles to read through.</p></div>
+        <div class="p-card reveal d2"><span class="p-ic">⎘</span><h3>Less copy/paste</h3><p>Compilation, formatting and the anonymous CV are done by the AI. You never touch Word again.</p></div>
+        <div class="p-card reveal d2"><span class="p-ic">⚡</span><h3>More speed</h3><p>From job profile to shortlist in minutes, not days.</p></div>
+        <div class="p-card reveal d3"><span class="p-ic">✦</span><h3>Better shortlists</h3><p>AI screening and compatibility scores: only the best reaches the client.</p></div>
+        <div class="p-card reveal d3 accent"><span class="p-ic">→</span><h3>All in one place</h3><p>Sourcing, matching, screening and send-to-client in a single platform.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 7 · REAL SCREENS ============ -->
+  <section id="screenshot" class="shots">
+    <div class="wrap">
+      <div class="shots-head reveal d1">
+        <span class="eyebrow">Inside the product</span>
+        <h2>Real screens, not mockups</h2>
+        <p>ITMatch is already in production. This is what the platform you'd use every day really looks like.</p>
+      </div>
+      <div class="shots-grid">
+        <figure class="shot wide reveal d1" data-zoom data-zoom-src={dashboard.src}>
+          <Image src={dashboard} alt="ITMatch dashboard: recruiting KPIs, imports, qualifications and communications" widths={[500,900,1300,1604]} sizes="(max-width:860px) 100vw, 900px" />
+          <figcaption>Dashboard · activity overview</figcaption>
+        </figure>
+        <figure class="shot reveal d2" data-zoom data-zoom-src={valutazione.src}>
+          <Image src={valutazione} alt="Candidate assessment with strengths, gaps and recruiter actions" widths={[400,700,1000,1672]} sizes="(max-width:860px) 100vw, 540px" />
+          <figcaption>Candidate assessment</figcaption>
+        </figure>
+        <figure class="shot reveal d2" data-zoom data-zoom-src={portaleClienti.src}>
+          <Image src={portaleClienti} alt="ITMatch client portal: shortlist with match scores and client feedback" widths={[400,700,1000,1586]} sizes="(max-width:860px) 100vw, 540px" />
+          <figcaption>Client portal · shortlist</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 8 · FINAL CTA + experience ============ -->
+  <section id="demo" class="cta">
+    <div class="wrap cta-box reveal d1">
+      <h2>Try ITMatch on a real position</h2>
+      <p>Leave us your details: we'll show you the AI matching on your own profiles, in a 30-minute demo.</p>
+      <DemoForm lang="en" />
+    </div>
+    <p class="experience reveal d2">
+      Built on the IT recruiting experience of
+      <a href="https://reteinformaticalavoro.it" target="_blank" rel="noopener">ReteInformaticaLavoro</a>,
+      a platform active in the IT sector for over 20 years.
+    </p>
+  </section>
+
+  <Lightbox />
+  <Footer lang="en" />
+</Layout>
+
+<style>
+  section { padding: 0; }
+  .eyebrow { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); font-weight: 600; }
+  .eyebrow.on-dark { color: var(--brand-300); }
+
+  /* ---------- HERO ---------- */
+  .hero { padding: 76px 0 0; text-align: left; background: radial-gradient(120% 80% at 50% -10%, var(--brand-50) 0%, #fff 60%); }
+  .hero-eyebrow { display:inline-block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); font-weight:600; background:var(--brand-50); border:1px solid #dfe3fb; padding:7px 14px; border-radius:999px; margin-bottom:24px; }
+  .hero h1 { font-size: 66px; line-height: 1.02; color: var(--ink); margin: 0 0 24px; max-width: 14ch; }
+  .hero h1 em { font-style: normal; color: var(--brand); }
+  .lead { font-size: 19px; line-height: 1.6; color: var(--muted); max-width: 60ch; margin: 0 0 32px; }
+  .lead strong { color: var(--ink); font-weight: 600; }
+  .cta-row { display: flex; gap: 22px; align-items: center; }
+  .trust-stats { display:flex; gap:48px; margin-top:48px; padding-top:30px; border-top:.5px solid var(--line); }
+  .stat { display:flex; flex-direction:column; }
+  .stat b { font-family:var(--font-serif); font-size:30px; color:var(--ink); line-height:1; }
+  .stat span { font-size:13px; color:var(--muted-2); margin-top:6px; }
+  .hero-shot { margin-top: 54px; padding-bottom: 90px; }
+  .hero-shot :global(img) { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--line); box-shadow: 0 40px 80px -28px rgba(79,70,229,.32); }
+
+  /* ---------- BLOCCO 2 intro + panorama ---------- */
+  .intro-prod { padding: 104px 0 0; }
+  .intro-prod h2 { font-size: 44px; line-height: 1.08; color: var(--ink); margin: 14px 0 18px; max-width: 20ch; }
+  .intro-prod .sub { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 60ch; }
+  .pano-img { margin-top: 44px; }
+  .pano-img :global(img) { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--line); box-shadow: 0 30px 70px -26px rgba(12,19,34,.22); }
+
+  /* ---------- FEATURE rows ---------- */
+  .feat { padding: 50px 0 90px; }
+  .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 50px 0; }
+  .f-row.reverse .f-text { order: 2; }
+  .f-text h3 { font-size: 28px; line-height: 1.15; color: var(--ink); margin: 12px 0 14px; }
+  .f-text p { font-size: 16px; line-height: 1.7; color: var(--muted); }
+  .checks { list-style: none; padding: 0; margin: 22px 0 0; }
+  .checks li { font-size: 15px; color: var(--ink-2); padding-left: 28px; position: relative; margin-bottom: 13px; }
+  .checks li::before { content: "✓"; position: absolute; left: 0; color: var(--match); font-weight: 700; }
+  .checks.light li { color: #d4dbe8; }
+  .checks.light li::before { color: var(--match); }
+  .f-shot { background: #fff; padding: 10px; border-radius: var(--radius); box-shadow: 0 24px 50px -22px rgba(12,19,34,.2); border: 1px solid var(--line); }
+  .f-shot :global(img) { width: 100%; height: auto; border-radius: 6px; display: block; }
+
+  /* ---------- BLOCCO 3 · DATABASE (dark) ---------- */
+  .db { padding: 96px 0; background: linear-gradient(180deg, #0c1322 0%, #141d33 100%); text-align: center; }
+  .db-head { max-width: 660px; margin: 0 auto 44px; }
+  .db-head h2 { font-size: 42px; line-height: 1.08; color: #fff; margin: 14px 0 16px; }
+  .db-head p { font-size: 17px; line-height: 1.65; color: #9fb0c4; margin: 0; }
+  .db-img :global(img) { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.1); box-shadow: 0 40px 90px -30px rgba(0,0,0,.6); }
+
+  /* ---------- BLOCCO 4 · FLOW ---------- */
+  .flow { padding: 100px 0; }
+  .flow-head { text-align: center; max-width: 720px; margin: 0 auto 30px; }
+  .flow-head h2 { font-size: 42px; line-height: 1.08; color: var(--ink); margin: 14px 0 26px; }
+  .flow-steps { display:inline-flex; align-items:center; gap:12px; flex-wrap:wrap; justify-content:center; background:var(--paper-2); border:1px solid var(--line); border-radius:999px; padding:12px 22px; }
+  .flow-steps span { font-family:var(--font-sans); font-size:14px; font-weight:600; color:var(--ink); }
+  .flow-steps i { color:var(--brand); font-style:normal; font-weight:700; }
+  .flow-row { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; padding:48px 0; }
+  .flow-row.reverse .flow-text { order: 2; }
+  .flow-text .num { font-family:var(--font-serif); font-size:15px; color:var(--brand); border:1.5px solid var(--brand); border-radius:50%; width:38px; height:38px; display:inline-flex; align-items:center; justify-content:center; margin-bottom:14px; }
+  .flow-text h3 { font-size:27px; line-height:1.15; color:var(--ink); margin:0 0 12px; }
+  .flow-text p { font-size:16px; line-height:1.7; color:var(--muted); }
+  .flow-shot { background:#fff; padding:10px; border-radius:var(--radius); border:1px solid var(--line); box-shadow:0 24px 50px -22px rgba(12,19,34,.2); }
+  .flow-shot :global(img) { width:100%; height:auto; border-radius:6px; display:block; }
+
+  /* ---------- BLOCCO 5 · SCREENING (dark, accent) ---------- */
+  .screening { padding: 96px 0; background: linear-gradient(135deg, var(--brand-700) 0%, #20184f 100%); }
+  .scr-grid { display:grid; grid-template-columns: 1fr 1.05fr; gap: 60px; align-items:center; }
+  .scr-text h2 { font-size: 42px; line-height: 1.06; color:#fff; margin: 14px 0 18px; }
+  .scr-text p { font-size: 17px; line-height: 1.65; color: #cbd0f5; margin: 0; }
+  .scr-shot { background: rgba(255,255,255,.04); padding: 10px; border-radius: var(--radius-lg); border: 1px solid rgba(255,255,255,.12); box-shadow: 0 40px 90px -30px rgba(0,0,0,.6); }
+  .scr-shot :global(img) { width:100%; height:auto; border-radius:8px; display:block; }
+
+  /* ---------- BLOCCO 6 · PERCHÉ ---------- */
+  .perche { padding: 100px 0; }
+  .perche-head { text-align:center; max-width:640px; margin:0 auto 44px; }
+  .perche-head h2 { font-size:40px; line-height:1.08; color:var(--ink); margin:14px 0 0; }
+  .perche-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .p-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); padding:28px 26px; transition:transform .18s ease, box-shadow .18s ease; }
+  .p-card:hover { transform:translateY(-3px); box-shadow:0 18px 40px -18px rgba(12,19,34,.18); }
+  .p-ic { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:11px; background:var(--brand-50); color:var(--brand); font-size:19px; font-weight:700; margin-bottom:16px; }
+  .p-card h3 { font-size:19px; color:var(--ink); margin:0 0 8px; }
+  .p-card p { font-size:14.5px; line-height:1.6; color:var(--muted); margin:0; }
+  .p-card.accent { background:var(--brand); border-color:var(--brand); }
+  .p-card.accent .p-ic { background:rgba(255,255,255,.18); color:#fff; }
+  .p-card.accent h3 { color:#fff; }
+  .p-card.accent p { color:#dfe1fb; }
+
+  /* ---------- BLOCCO 7 · SCREENSHOT ---------- */
+  .shots { padding: 96px 0; background: var(--paper-2); }
+  .shots-head { text-align:center; max-width:640px; margin:0 auto 44px; }
+  .shots-head h2 { font-size:40px; line-height:1.08; color:var(--ink); margin:14px 0 14px; }
+  .shots-head p { font-size:17px; line-height:1.6; color:var(--muted); margin:0; }
+  .shots-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .shot { margin:0; background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:10px; box-shadow:0 20px 44px -20px rgba(12,19,34,.16); }
+  .shot.wide { grid-column:1 / -1; }
+  .shot :global(img) { width:100%; height:auto; border-radius:6px; display:block; }
+  .shot figcaption { font-size:13px; color:var(--muted-2); text-align:center; padding:12px 0 4px; letter-spacing:.02em; }
+
+  /* ---------- BLOCCO 8 · CTA ---------- */
+  .cta { padding: 104px 0; }
+  .cta-box { background: linear-gradient(135deg, var(--ink) 0%, #1a2444 100%); border-radius: var(--radius-lg); padding: 60px 48px; text-align: center; max-width: 760px; margin: 0 auto; }
+  .cta-box h2 { font-size: 38px; color: #fff; margin: 0 0 14px; }
+  .cta-box p { color: #aab6c4; font-size: 17px; line-height: 1.6; margin: 0 auto 32px; max-width: 50ch; }
+  .experience { text-align:center; font-size:14px; color:var(--muted-2); margin:36px auto 0; max-width:60ch; line-height:1.6; }
+  .experience a { color:var(--brand); text-decoration:none; border-bottom:1px solid var(--brand-300); }
+  .experience a:hover { color:var(--brand-700); }
+
+  /* ---------- zoom hint (lightbox) ---------- */
+  [data-zoom] { position: relative; }
+  [data-zoom]::after {
+    content: "⤢ Clicca per ingrandire";
+    position: absolute; top: 16px; right: 16px;
+    background: rgba(12,19,34,.82); color: #fff;
+    font-family: var(--font-sans); font-size: 12px; font-weight: 500;
+    padding: 7px 12px; border-radius: 8px;
+    opacity: 0; transform: translateY(-4px); transition: opacity .2s ease, transform .2s ease;
+    pointer-events: none; z-index: 2;
+  }
+  [data-zoom]:hover::after { opacity: 1; transform: translateY(0); }
+  @media (max-width: 860px) { [data-zoom]::after { content: "⤢"; padding: 8px 10px; } }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .hero { padding: 50px 0 0; }
+    .hero h1 { font-size: 42px; }
+    .lead { font-size: 17px; }
+    .trust-stats { gap: 28px; flex-wrap: wrap; }
+    .stat b { font-size: 24px; }
+    .intro-prod h2, .db-head h2, .flow-head h2, .scr-text h2, .perche-head h2, .shots-head h2, .cta-box h2 { font-size: 30px; }
+    .f-row, .f-row.reverse, .flow-row, .flow-row.reverse, .scr-grid { grid-template-columns: 1fr; gap: 32px; }
+    .f-row.reverse .f-text, .flow-row.reverse .flow-text { order: 0; }
+    .perche-grid { grid-template-columns: 1fr; }
+    .shots-grid { grid-template-columns: 1fr; }
+  }
+</style>

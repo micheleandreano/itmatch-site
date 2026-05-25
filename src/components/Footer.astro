@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import logoWhite from '../assets/itmatch/logo-itmatch-white.png';
+const year = new Date().getFullYear();
+
+interface Props { lang?: 'it' | 'en'; }
+const { lang = 'it' } = Astro.props;
+const base = lang === 'en' ? '/en/' : '/';
+
+const t = {
+  it: {
+    tag: "L'AI Recruiting Engine per il mercato IT.",
+    colProd: 'Prodotto', howto: 'Come funziona', db: 'Database IT', flow: 'Job → Shortlist', screening: 'AI Screening',
+    colRes: 'Risorse', why: 'Perché ITMatch', shots: 'Schermate', contacts: 'Contatti', blog: 'Blog',
+    colStart: 'Inizia', cta: 'Richiedi demo', place: 'Milano, Italia',
+  },
+  en: {
+    tag: 'The AI Recruiting Engine for the IT market.',
+    colProd: 'Product', howto: 'How it works', db: 'IT Database', flow: 'Job → Shortlist', screening: 'AI Screening',
+    colRes: 'Resources', why: 'Why ITMatch', shots: 'Screens', contacts: 'Contact', blog: 'Blog',
+    colStart: 'Get started', cta: 'Request a demo', place: 'Milan, Italy',
+  },
+}[lang];
+---
+<footer class="ft">
+  <div class="wrap grid">
+    <div>
+      <a href={base} class="logo"><Image src={logoWhite} alt="ITMatch" widths={[170, 280]} sizes="170px" /></a>
+      <p class="tag">{t.tag}</p>
+      <p class="powered">Powered by ReteInformaticaLavoro · Code&Career</p>
+    </div>
+    <div>
+      <h4>{t.colProd}</h4>
+      <a href={`${base}#prodotto`}>{t.howto}</a>
+      <a href={`${base}#database`}>{t.db}</a>
+      <a href={`${base}#flow`}>{t.flow}</a>
+      <a href={`${base}#screening`}>{t.screening}</a>
+    </div>
+    <div>
+      <h4>{t.colRes}</h4>
+      <a href={`${base}#perche`}>{t.why}</a>
+      <a href={`${base}#screenshot`}>{t.shots}</a>
+      <a href="/blog/">{t.blog}</a>
+      <a href={`${base}#demo`}>{t.contacts}</a>
+    </div>
+    <div>
+      <h4>{t.colStart}</h4>
+      <a href={lang === "en" ? "/en/demo/" : "/demo/"} class="btn btn-accent" style="margin-top:6px;">{t.cta}</a>
+    </div>
+  </div>
+  <div class="wrap bottom">
+    <span>© {year} Code&Career Srl · P.IVA 14370520968</span>
+    <span>{t.place}</span>
+  </div>
+</footer>
+
+<style>
+  .ft { background: var(--ink); color: #aab6c4; margin-top: 0; padding: 64px 0 28px; }
+  .grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 32px; }
+  .logo { display: inline-flex; align-items: center; text-decoration: none; }
+  .logo :global(img) { height: 34px; width: auto; display: block; }
+  .tag { font-size: 13px; color: #9fb0c4; margin: 12px 0 6px; max-width: 240px; line-height: 1.6; }
+  .powered { font-size: 12px; color: #6e8298; margin: 0; }
+  h4 { font-size: 13px; color: #fff; margin: 0 0 14px; font-weight: 600; }
+  .ft a:not(.logo) { display: block; font-size: 13px; color: #cdd7e2; text-decoration: none; margin-bottom: 9px; }
+  .ft a:not(.logo):hover { color: #fff; }
+  .bottom { display: flex; justify-content: space-between; font-size: 12px; color: #6e8298; border-top: 1px solid rgba(255,255,255,.1); margin-top: 40px; padding-top: 22px; }
+  @media (max-width: 720px) { .grid { grid-template-columns: 1fr 1fr; } .bottom { flex-direction: column; gap: 8px; } }
+</style>

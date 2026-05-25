@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import DemoForm from '../components/DemoForm.astro';
+---
+<Layout
+  lang="it"
+  title="Richiedi una demo — ITMatch"
+  description="Richiedi una demo gratuita di ITMatch: ti mostriamo il matching AI sui tuoi profili IT reali, in 30 minuti."
+>
+  <Header lang="it" />
+
+  <section class="demo-page">
+    <div class="wrap demo-grid">
+      <div class="demo-left">
+        <span class="eyebrow">Prova ITMatch</span>
+        <h1>Scopri cosa può fare<br>ITMatch per te.</h1>
+        <p class="lead">
+          Richiedi una demo personalizzata (e gratuita) pensata sulle esigenze della tua azienda.
+          Il nostro team ti mostra il matching AI sui tuoi profili reali e i risultati che puoi ottenere.
+        </p>
+        <ul class="demo-checks">
+          <li>Matching AI su una posizione reale</li>
+          <li>Screening automatico su WhatsApp</li>
+          <li>CV anonimo professionale in un click</li>
+          <li>Oltre 80.000 CV IT già integrati</li>
+        </ul>
+        <p class="demo-exp">
+          Costruito sull'esperienza di
+          <a href="https://reteinformaticalavoro.it" target="_blank" rel="noopener">ReteInformaticaLavoro</a>,
+          attiva nel recruiting IT da oltre 20 anni.
+        </p>
+      </div>
+      <div class="demo-right">
+        <DemoForm lang="it" />
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="it" />
+</Layout>
+
+<style>
+  .demo-page { padding: 64px 0 90px; background: radial-gradient(120% 60% at 80% 0%, var(--brand-50) 0%, #fff 55%); }
+  .demo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+  .eyebrow { font-family: var(--font-sans); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--brand); font-weight: 600; }
+  .demo-left h1 { font-size: 46px; line-height: 1.08; color: var(--ink); margin: 14px 0 20px; letter-spacing: -0.02em; }
+  .lead { font-size: 18px; line-height: 1.6; color: var(--muted); margin: 0 0 28px; }
+  .demo-checks { list-style: none; padding: 0; margin: 0 0 30px; }
+  .demo-checks li { position: relative; padding-left: 28px; margin-bottom: 12px; font-size: 16px; color: var(--ink); }
+  .demo-checks li::before { content: "✓"; position: absolute; left: 0; color: var(--match); font-weight: 700; }
+  .demo-exp { font-size: 14px; color: var(--muted-2); line-height: 1.6; }
+  .demo-exp a { color: var(--brand); }
+  .demo-right { background: var(--ink); border-radius: 20px; padding: 36px 34px; box-shadow: 0 30px 70px -30px rgba(12,19,34,.4); }
+  @media (max-width: 900px) {
+    .demo-grid { grid-template-columns: 1fr; gap: 40px; }
+    .demo-left h1 { font-size: 36px; }
+    .demo-right { padding: 28px 22px; }
+  }
+</style>
