@@ -4,6 +4,8 @@ description: "ITMatch automatizza ricerca, matching, screening e qualifica dei c
 pubDate: 2026-05-23
 author: "ITMatch"
 tags: ["AI recruiting", "recruiting IT", "matching candidati", "screening AI"]
+heroImage: "/blog/ai-lavora-per-te.png"
+heroAlt: "Schema del prodotto ITMatch: l'AI estrae, compila, formatta e riduce il lavoro operativo del recruiter"
 ---
 
 Trovare il candidato IT giusto richiede ore di lavoro ripetitivo: ricerca nei database, lettura di decine di CV, formattazione di profili, screening telefonico. **ITMatch automatizza tutto questo**, lasciando al recruiter l'unica cosa che conta davvero: scegliere le persone.

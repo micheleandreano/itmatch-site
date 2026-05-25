@@ -10,8 +10,10 @@ interface Props {
   updatedDate?: Date;
   author?: string;
   tags?: string[];
+  heroImage?: string;
+  heroAlt?: string;
 }
-const { title, description, pubDate, updatedDate, author = 'ITMatch', tags = [] } = Astro.props;
+const { title, description, pubDate, updatedDate, author = 'ITMatch', tags = [], heroImage, heroAlt = '' } = Astro.props;
 const fmt = (d: Date) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <Layout title={`${title} — ITMatch`} description={description} lang="it">
@@ -28,6 +30,11 @@ const fmt = (d: Date) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 
       </div>
       {tags.length > 0 && (
         <div class="tags">{tags.map((tag) => <span class="tag">{tag}</span>)}</div>
+      )}
+      {heroImage && (
+        <figure class="hero-img">
+          <img src={heroImage} alt={heroAlt} loading="eager" />
+        </figure>
       )}
       <div class="body">
         <slot />
@@ -47,6 +54,8 @@ const fmt = (d: Date) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 
   .meta { font-size: 14px; color: var(--muted-2); margin-bottom: 16px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
   .tag { font-size: 12px; color: var(--brand); background: var(--brand-50); padding: 4px 10px; border-radius: 999px; }
+  .hero-img { margin: 0 0 40px; }
+  .hero-img img { width: 100%; height: auto; border-radius: var(--radius-lg); border: 1px solid var(--line); box-shadow: 0 24px 50px -22px rgba(12,19,34,.22); display: block; }
   .body { font-size: 17px; line-height: 1.75; color: var(--ink-2, #2c3440); }
   .body :global(h2) { font-size: 26px; line-height: 1.25; color: var(--ink); margin: 44px 0 14px; letter-spacing: -0.01em; }
   .body :global(h3) { font-size: 20px; color: var(--ink); margin: 30px 0 10px; }
@@ -55,5 +64,8 @@ const fmt = (d: Date) => d.toLocaleDateString('it-IT', { day: 'numeric', month: 
   .body :global(li) { margin-bottom: 8px; }
   .body :global(a) { color: var(--brand); text-decoration: underline; }
   .body :global(strong) { color: var(--ink); }
+  .body :global(img) { width: 100%; height: auto; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 20px 44px -20px rgba(12,19,34,.16); margin: 28px 0; display: block; }
+  .body :global(figure) { margin: 28px 0; }
+  .body :global(figcaption) { font-size: 13px; color: var(--muted-2); text-align: center; margin-top: 10px; }
   @media (max-width: 720px) { .post h1 { font-size: 32px; } .body { font-size: 16px; } }
 </style>
