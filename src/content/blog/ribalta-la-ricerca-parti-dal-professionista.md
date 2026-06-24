@@ -8,7 +8,7 @@ heroImage: "/blog/ricerca-opportunita-professionista.png"
 heroAlt: "Interfaccia ITMatch: ricerca delle opportunità di lavoro più compatibili con il profilo del professionista, ordinate per punteggio di affinità"
 ---
 
-Nel recruiting si parte quasi sempre dallo stesso punto: c'è una posizione aperta, e si cerca la persona giusta. L'annuncio prima, il candidato dopo. Funziona — ma copre solo metà del lavoro reale.
+Nel **recruiting IT** si parte quasi sempre dallo stesso punto: c'è una posizione aperta, e si cerca la persona giusta. L'annuncio prima, il candidato dopo. Funziona — ma copre solo metà del lavoro reale.
 
 Perché chi fa **staffing IT** e somministrazione conosce bene l'altro scenario: a volte non parti da una posizione da riempire, ma da un **professionista già in casa** — un collaboratore valido, competente, disponibile, che merita la giusta opportunità. E lì la domanda si rovescia: perché perdere tempo a cercare il cliente che ha bisogno di quel profilo, quando puoi cercare direttamente gli annunci più adatti a lui?
 
@@ -45,7 +45,7 @@ Per ogni annuncio, ITMatch evidenzia le **tecnologie del professionista che corr
 
 ## Il database che alimenta tutto
 
-Questa **ricerca inversa** funziona perché sotto c'è un **database verticale IT**: ITMatch è collegato nativamente a **ReteInformaticaLavoro**, attiva nel **recruiting IT** da oltre 20 anni, con **oltre 80.000 CV reali**. Non un bacino generico, ma profili informatici qualificati su cui il matching ha senso.
+Questa **ricerca inversa** funziona perché sotto c'è un **database verticale IT**: ITMatch è collegato nativamente a **ReteInformaticaLavoro**, con oltre **80.000 CV reali** di professionisti informatici. Non un bacino generico, ma profili qualificati su cui il matching ha senso.
 
 E tutto avviene in **conformità al GDPR**: i dati del professionista sono trattati nel rispetto della normativa, nessun dato condiviso senza autorizzazione.
 
