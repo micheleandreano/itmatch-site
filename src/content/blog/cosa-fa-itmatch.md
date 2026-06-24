@@ -49,6 +49,6 @@ ITMatch trasforma ogni profilo in una scheda pulita e uniforme, con il tuo brand
 
 ## In sintesi
 
-ITMatch toglie dalle mani del recruiter il lavoro operativo — ricerca, lettura, formattazione, screening — e lo restituisce sotto forma di shortlist già pronte e qualificate. È costruito sull'esperienza di recruiting IT di ReteInformaticaLavoro, piattaforma attiva nel settore da oltre 20 anni.
+ITMatch toglie dalle mani del recruiter il lavoro operativo — ricerca, lettura, formattazione, screening — e lo restituisce sotto forma di shortlist già pronte e qualificate. È costruito sull'esperienza di recruiting IT di ReteInformaticaLavoro.
 
 Se vuoi vedere il matching AI sui tuoi profili reali, [richiedi una demo](/#demo): in 30 minuti ti mostriamo come funziona su una posizione concreta.

@@ -30,7 +30,7 @@ Qui entra il matching basato sull'AI. Invece di leggere centinaia di profili per
 
 ## Il database conta quanto l'algoritmo
 
-Un motore di matching, però, vale solo quanto i dati su cui lavora. Filtrare con l'AI un bacino di CV generici e disordinati produce comunque risultati mediocri. ITMatch parte da un vantaggio strutturale: l'integrazione nativa con ReteInformaticaLavoro, oltre 80.000 CV IT reali con competenze già strutturate. Non profili raccolti a caso, ma un database verticale costruito in vent'anni di recruiting informatico — esattamente il tipo di dato su cui il matching AI rende al massimo.
+Un motore di matching, però, vale solo quanto i dati su cui lavora. Filtrare con l'AI un bacino di CV generici e disordinati produce comunque risultati mediocri. ITMatch parte da un vantaggio strutturale: l'integrazione nativa con ReteInformaticaLavoro, oltre 80.000 CV IT reali con competenze già strutturate. Non profili raccolti a caso, ma un database verticale di recruiting informatico — esattamente il tipo di dato su cui il matching AI rende al massimo.
 
 ## In sintesi
 
